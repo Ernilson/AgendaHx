@@ -44,7 +44,7 @@ class AgendaHxApplicationServerTests {
 		AgendaDomain agendaDomain = new AgendaDomain();
 		PacienteDomain domain = new PacienteDomain();
 		domain.setId(1);
-		agendaDomain.setDescricao("mais teste");
+		agendaDomain.setDescricao("mais teste de integracao");
 		agendaDomain.setDataCriacao(LocalDateTime.now());
 		agendaDomain.setHorario(LocalDateTime.now());
 		agendaDomain.setPaciente(domain);

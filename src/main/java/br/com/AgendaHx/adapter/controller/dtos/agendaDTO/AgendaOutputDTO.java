@@ -1,25 +1,20 @@
-package br.com.AgendaHx.adapter.outPut.entities;
+package br.com.AgendaHx.adapter.controller.dtos.agendaDTO;
 
-import jakarta.persistence.*;
+import br.com.AgendaHx.adapter.outPut.entities.PacienteEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Entity
-@Table(name = "tb_Agenda")
-public class AgendaEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class AgendaOutputDTO {
     private Long id;
     private String descricao;
     private LocalDateTime horario;
     private LocalDateTime dataCriacao;
 
-    @ManyToOne
     private PacienteEntity paciente;
 }

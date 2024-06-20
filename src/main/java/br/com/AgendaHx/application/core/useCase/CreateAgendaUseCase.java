@@ -6,7 +6,7 @@ import br.com.AgendaHx.application.ports.outPut.CreateAgendaOutPutPort;
 
 public class CreateAgendaUseCase implements CreateAgendaInputPort {
 
-    private CreateAgendaOutPutPort createAgendaOutPutPort;
+    private final CreateAgendaOutPutPort createAgendaOutPutPort;
 
     public CreateAgendaUseCase(CreateAgendaOutPutPort createAgendaOutPutPort){
         this.createAgendaOutPutPort = createAgendaOutPutPort;
