@@ -1,7 +1,5 @@
 package br.com.AgendaHx.application.core.domain;
 
-import br.com.AgendaHx.adapter.outPut.entities.PacienteEntity;
-
 import java.time.LocalDateTime;
 
 public class AgendaDomain {

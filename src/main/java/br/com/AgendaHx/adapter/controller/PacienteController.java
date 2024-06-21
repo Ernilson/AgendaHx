@@ -1,6 +1,8 @@
 package br.com.AgendaHx.adapter.controller;
 
 import br.com.AgendaHx.adapter.controller.request.PacienteRequest;
+import br.com.AgendaHx.adapter.controller.response.PacienteResponse;
+import br.com.AgendaHx.adapter.outPut.repository.PacienteRepository;
 import br.com.AgendaHx.application.core.domain.PacienteDomain;
 import br.com.AgendaHx.application.ports.inPut.pacienteInputPort.CreatePacienteInputPort;
 import org.modelmapper.ModelMapper;
@@ -22,8 +24,8 @@ public class PacienteController {
     private ModelMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody PacienteRequest pacienteInputDTO){
-        PacienteDomain paciente = mapper.map(pacienteInputDTO, PacienteDomain.class);
+    public ResponseEntity<PacienteResponse> create(@RequestBody PacienteRequest request){
+        PacienteDomain paciente = mapper.map(request, PacienteDomain.class);
         createPacienteInputPort.create(paciente);
         return ResponseEntity.ok().build();
     }

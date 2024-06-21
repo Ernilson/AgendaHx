@@ -1,6 +1,7 @@
 package br.com.AgendaHx.adapter.controller;
 
 import br.com.AgendaHx.adapter.controller.request.AgendaRequest;
+import br.com.AgendaHx.adapter.controller.response.AgendaResponse;
 import br.com.AgendaHx.application.core.domain.AgendaDomain;
 import br.com.AgendaHx.application.ports.inPut.agendaInputPort.CreateAgendaInputPort;
 import org.modelmapper.ModelMapper;
@@ -26,8 +27,8 @@ public class AgendaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createAgenda(@RequestBody AgendaRequest agendaInputDTO){
-        var agenda = mapper.map(agendaInputDTO, AgendaDomain.class);
+    public ResponseEntity<AgendaResponse> createAgenda(@RequestBody AgendaRequest request){
+        var agenda = mapper.map(request, AgendaDomain.class);
         agendaInputPort.createAgenda(agenda);
         return ResponseEntity.ok().build();
     }
