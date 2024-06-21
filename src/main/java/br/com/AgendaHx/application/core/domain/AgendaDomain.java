@@ -56,6 +56,10 @@ public class AgendaDomain {
         this.dataCriacao = dataCriacao;
     }
 
+    public PacienteDomain getPaciente() {
+        return paciente;
+    }
+
     public void setPaciente(PacienteDomain paciente) {
         this.paciente = paciente;
     }

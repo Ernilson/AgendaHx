@@ -1,8 +1,8 @@
 package br.com.AgendaHx.adapter.controller;
 
-import br.com.AgendaHx.adapter.controller.dtos.agendaDTO.AgendaInputDTO;
+import br.com.AgendaHx.adapter.controller.request.AgendaRequest;
 import br.com.AgendaHx.application.core.domain.AgendaDomain;
-import br.com.AgendaHx.application.ports.inPut.CreateAgendaInputPort;
+import br.com.AgendaHx.application.ports.inPut.agendaInputPort.CreateAgendaInputPort;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class AgendaController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createAgenda(@RequestBody AgendaInputDTO agendaInputDTO){
+    public ResponseEntity<Void> createAgenda(@RequestBody AgendaRequest agendaInputDTO){
         var agenda = mapper.map(agendaInputDTO, AgendaDomain.class);
         agendaInputPort.createAgenda(agenda);
         return ResponseEntity.ok().build();

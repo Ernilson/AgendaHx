@@ -1,8 +1,8 @@
-package br.com.AgendaHx.application.core.useCase;
+package br.com.AgendaHx.application.core.useCase.agendaUsecase;
 
 import br.com.AgendaHx.application.core.domain.AgendaDomain;
-import br.com.AgendaHx.application.ports.inPut.CreateAgendaInputPort;
-import br.com.AgendaHx.application.ports.outPut.CreateAgendaOutPutPort;
+import br.com.AgendaHx.application.ports.inPut.agendaInputPort.CreateAgendaInputPort;
+import br.com.AgendaHx.application.ports.outPut.agendaOutputPort.CreateAgendaOutPutPort;
 
 public class CreateAgendaUseCase implements CreateAgendaInputPort {
 
