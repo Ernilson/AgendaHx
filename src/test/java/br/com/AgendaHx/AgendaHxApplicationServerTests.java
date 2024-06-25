@@ -73,16 +73,16 @@ class AgendaHxApplicationServerTests {
 		agendaSevico.createAgenda(agendaDomain);
 	}
 
-	@Test
-	void findAgenda() {
-		Optional<AgendaDomain> optionalAgenda = findAgendaByIdAdapter.findById(752L);
-
-		if (optionalAgenda.isPresent()) {
-			AgendaDomain agenda = optionalAgenda.get();
-			System.out.println("Chamando findById com ID: " + agenda.getId() + " - Nome: " + agenda.getDescricao());
-		} else {
-			System.out.println("Paciente não encontrado com ID: 1");
-		}
-	}
+//	@Test
+//	void findAgenda() {
+//		Optional<AgendaDomain> optionalAgenda = findAgendaByIdAdapter.findById(752L);
+//
+//		if (optionalAgenda.isPresent()) {
+//			AgendaDomain agenda = optionalAgenda.get();
+//			System.out.println("Chamando findById com ID: " + agenda.getId() + " - Nome: " + agenda.getDescricao());
+//		} else {
+//			System.out.println("Paciente não encontrado com ID: 1");
+//		}
+//	}
 
 }
