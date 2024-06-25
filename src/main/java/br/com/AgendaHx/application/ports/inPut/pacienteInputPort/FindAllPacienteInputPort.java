@@ -5,5 +5,6 @@ import br.com.AgendaHx.application.core.domain.PacienteDomain;
 import java.util.List;
 
 public interface FindAllPacienteInputPort {
+
     public List<PacienteDomain> findAll();
 }

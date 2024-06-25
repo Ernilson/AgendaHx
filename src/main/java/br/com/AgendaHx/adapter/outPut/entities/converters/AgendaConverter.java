@@ -15,9 +15,13 @@ public class AgendaConverter {
         entity.setDescricao(domain.getDescricao());
         entity.setDataCriacao(domain.getDataCriacao());
         entity.setHorario(domain.getHorario());
+        if (domain.getPaciente() != null) {
         PacienteEntity pacienteEntity = new PacienteEntity();
         pacienteEntity.setId(domain.getPaciente().getId());
         entity.setPaciente(pacienteEntity);
+        } else {
+            entity.setPaciente(null);
+        }
         return entity;
     }
 
@@ -26,10 +30,15 @@ public class AgendaConverter {
         domain.setId(entity.getId());
         domain.setDescricao(entity.getDescricao());
         domain.setHorario(entity.getHorario());
+        if (entity.getPaciente() != null) {
         PacienteDomain pacienteDomain = new PacienteDomain();
+
         pacienteDomain.setId(entity.getPaciente().getId());
         pacienteDomain.setNome(entity.getPaciente().getNome());
         domain.setPaciente(pacienteDomain);
+        } else {
+            domain.setPaciente(null);
+        }
         return domain;
     }
 }
