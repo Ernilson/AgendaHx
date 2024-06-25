@@ -5,6 +5,7 @@ import br.com.AgendaHx.adapter.controller.request.AgendaRequest;
 import br.com.AgendaHx.adapter.controller.response.AgendaResponse;
 import br.com.AgendaHx.application.core.domain.AgendaDomain;
 import br.com.AgendaHx.application.ports.inPut.agendaInputPort.CreateAgendaInputPort;
+import br.com.AgendaHx.application.ports.inPut.agendaInputPort.DeleteAgendaInputPort;
 import br.com.AgendaHx.application.ports.inPut.agendaInputPort.FindAgendaByIdInputPort;
 import br.com.AgendaHx.application.ports.inPut.agendaInputPort.FindAllAgendaInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class AgendaController {
     private final CreateAgendaInputPort agendaInputPort;
     private final FindAllAgendaInputPort serviceFindall;
     private final FindAgendaByIdInputPort serviceFindById;
+    private final DeleteAgendaInputPort deleteAgenda;
     private final AgendaMapper mapper;
 
 
@@ -29,10 +31,12 @@ public class AgendaController {
     public AgendaController(CreateAgendaInputPort agendaInputPort,
                             FindAllAgendaInputPort serviceFindall,
                             FindAgendaByIdInputPort serviceFindById,
+                            DeleteAgendaInputPort deleteAgenda,
                             AgendaMapper mapper) {
         this.agendaInputPort = agendaInputPort;
         this.serviceFindall = serviceFindall;
         this.serviceFindById = serviceFindById;
+        this.deleteAgenda = deleteAgenda;
         this.mapper = mapper;
     }
 
@@ -61,5 +65,13 @@ public class AgendaController {
         return ResponseEntity.status(HttpStatus.OK).body(agendaResponse);
     }
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAgenda(@PathVariable final Long id){
+        try {
+            deleteAgenda.deleteById(id);
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

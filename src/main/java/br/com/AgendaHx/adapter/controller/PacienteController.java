@@ -5,6 +5,7 @@ import br.com.AgendaHx.adapter.controller.request.PacienteRequest;
 import br.com.AgendaHx.adapter.controller.response.PacienteResponse;
 import br.com.AgendaHx.application.core.domain.PacienteDomain;
 import br.com.AgendaHx.application.ports.inPut.pacienteInputPort.CreatePacienteInputPort;
+import br.com.AgendaHx.application.ports.inPut.pacienteInputPort.DeletePacienteInputPort;
 import br.com.AgendaHx.application.ports.inPut.pacienteInputPort.FindAllPacienteInputPort;
 import br.com.AgendaHx.application.ports.inPut.pacienteInputPort.FindPacienteByIdInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class PacienteController {
 
     @Autowired
     private FindPacienteByIdInputPort serviceFindById;
+
+    @Autowired
+    private DeletePacienteInputPort serviceDeleteById;
 
     @Autowired
     private PacienteMapper mapper;
@@ -57,6 +61,16 @@ public class PacienteController {
 
         PacienteResponse pacienteResponse = mapper.toPacienteResponse(optPaciente.get());
         return ResponseEntity.status(HttpStatus.OK).body(pacienteResponse);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePaciente(@PathVariable final Long id){
+        try {
+            serviceDeleteById.deleteById(id);
+        } catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

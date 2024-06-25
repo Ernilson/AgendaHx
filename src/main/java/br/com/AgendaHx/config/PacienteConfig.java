@@ -1,10 +1,13 @@
 package br.com.AgendaHx.config;
 
 import br.com.AgendaHx.adapter.outPut.service.pacienteService.CreatePacienteAdapter;
+import br.com.AgendaHx.adapter.outPut.service.pacienteService.DeletePacienteAdapter;
 import br.com.AgendaHx.adapter.outPut.service.pacienteService.FindAllPacienteAdapter;
 import br.com.AgendaHx.adapter.outPut.service.pacienteService.FindPacienteByIdAdapter;
+import br.com.AgendaHx.application.core.useCase.agendaUsecase.DeleteAgendaUseCase;
 import br.com.AgendaHx.application.core.useCase.agendaUsecase.FindAllAgendaUseCase;
 import br.com.AgendaHx.application.core.useCase.pacienteUseCase.CreatePacienteUseCase;
+import br.com.AgendaHx.application.core.useCase.pacienteUseCase.DeletePacienteUseCase;
 import br.com.AgendaHx.application.core.useCase.pacienteUseCase.FindAllPacienteUseCase;
 import br.com.AgendaHx.application.core.useCase.pacienteUseCase.FindPacienteByIdUseCase;
 import org.modelmapper.ModelMapper;
@@ -33,5 +36,10 @@ public class PacienteConfig {
     @Bean
     public FindAllPacienteUseCase findAllPacienteUseCase (FindAllPacienteAdapter findAllPacienteAdapter){
         return new FindAllPacienteUseCase(findAllPacienteAdapter);
+    }
+
+    @Bean
+    public DeletePacienteUseCase deletePacienteUseCase(DeletePacienteAdapter deletePacienteAdapter){
+        return new DeletePacienteUseCase(deletePacienteAdapter);
     }
 }
