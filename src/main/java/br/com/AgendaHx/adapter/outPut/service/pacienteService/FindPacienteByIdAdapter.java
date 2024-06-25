@@ -22,7 +22,6 @@ public class FindPacienteByIdAdapter implements FindPacienteByIdOutputPort {
     public Optional<PacienteDomain> findById(Long id) {
         var pacienteEntity = repository.findById(id);
         return pacienteEntity.map(entity -> converter.toDomain(entity));
-
     }
 
 }

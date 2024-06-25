@@ -1,6 +1,5 @@
 package br.com.AgendaHx.adapter.outPut.service.pacienteService;
 
-import br.com.AgendaHx.adapter.outPut.entities.PacienteEntity;
 import br.com.AgendaHx.adapter.outPut.entities.converters.PacienteConverter;
 import br.com.AgendaHx.adapter.outPut.repository.PacienteRepository;
 import br.com.AgendaHx.application.ports.outPut.pacienteOutputPort.DeletePacienteOutputPort;
@@ -14,6 +13,6 @@ public class DeletePacienteAdapter implements DeletePacienteOutputPort {
 
     @Override
     public void deleteById(Long id) {
-       repository.deleteById(id);
+        repository.deleteById(id);
     }
 }

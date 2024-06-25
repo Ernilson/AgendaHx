@@ -4,18 +4,13 @@ import br.com.AgendaHx.adapter.outPut.entities.PacienteEntity;
 import br.com.AgendaHx.application.core.domain.PacienteDomain;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Component
 public class PacienteConverter {
 
-    public PacienteEntity toEntity(PacienteDomain domain) {
-        PacienteEntity entity = new PacienteEntity();
-        entity.setId(domain.getId());
-        entity.setNome(domain.getNome());
-        entity.setSobreNome(domain.getSobreNome());
-        entity.setCpf(domain.getCpf());
-        entity.setEmail(domain.getEmail());
-        return entity;
-    }
 
     //Converte de Entity para Domain
     public PacienteDomain toDomain(PacienteEntity entity) {
@@ -26,5 +21,24 @@ public class PacienteConverter {
         domain.setCpf(entity.getCpf());
         domain.setEmail(entity.getEmail());
         return domain;
+    }
+
+    //Converte de Domain para Entity
+    public PacienteEntity toEntity(PacienteDomain domain) {
+        PacienteEntity entity = new PacienteEntity();
+        entity.setId(domain.getId());
+        entity.setNome(domain.getNome());
+        entity.setSobreNome(domain.getSobreNome());
+        entity.setCpf(domain.getCpf());
+        entity.setEmail(domain.getEmail());
+        return entity;
+    }
+
+    public List<PacienteEntity> toPacienteDomainList(List<PacienteDomain> pacientes) {
+        List<PacienteEntity> entities = new ArrayList<>();
+        for (PacienteDomain paciente : pacientes) {
+            entities.add(toEntity(paciente));
+        }
+        return entities;
     }
 }

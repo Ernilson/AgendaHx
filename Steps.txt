@@ -13,3 +13,9 @@ após criar a inteface é necessario injeta-la na usecase (formularioDomain) ond
 
 6 - application/adapter/input/Controller -> onde vai implementar converters de entidades para dto's
 7 - config
+
+Microserviço em Java
+https://www.youtube.com/watch?v=k-1YMA2RpPs
+
+Mapper
+https://www.youtube.com/watch?v=TqsZGCC_4Pg&t=865s
